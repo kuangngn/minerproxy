@@ -23,7 +23,7 @@ yum update -y && yum install wget -y
 ```
 安装好 wget 之后 下载脚本并执行
 ```bash
-wget https://raw.githubusercontent.com/kuangngn/MinerProxy/main/install.sh
+wget https://raw.githubusercontent.com/kuangngn/minerProxy/main/install.sh
 bash install.sh
 ```
 
