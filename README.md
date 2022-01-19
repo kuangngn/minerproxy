@@ -23,7 +23,7 @@ yum update -y && yum install wget -y
 ```
 安装好 wget 之后 下载脚本并执行
 ```bash
-wget https://raw.githubusercontent.com/kuangngn/minerProxy/main/install.sh
+wget https://raw.githubusercontent.com/kuangngn/minerproxy/main/install.sh
 bash install.sh
 ```
 
@@ -41,20 +41,20 @@ yum update -y && yum install curl -y
 # Liunx-手动安装
 ```bash
 git clone https://github.com/kuangngn/minerproxy.git
-cd minerProxy
-chmod a+x minerProxy_3.0.3_linux
-nohup ./minerProxy_3.0.3_linux & (后台运行，注意：& 也需要复制，运行完再敲几下回车)
+cd minerproxy
+chmod a+x minerproxy_3.0.3_linux
+nohup ./minerproxy_3.0.3_linux & (后台运行，注意：& 也需要复制，运行完再敲几下回车)
 tail -f nohup.out (后台运行时查看)
 ```
 
 运行成功后访问 IP:18888 (如：127.0.0.1:18888 注意开放端口) 进行配置即可。
 ### 后台运行（注意后面的&）运行完再敲几下回车
 ```bash
-nohup ./minerProxy_3.0.3_linux &
+nohup ./minerproxy_3.0.3_linux &
 ```
 ### 后台运行时关闭
 ```bash
-killall minerProxy_3.0.3_linux
+killall minerproxy_3.0.3_linux
 ```
 ### 后台运行时查看
 ```bash
@@ -77,9 +77,9 @@ yum install git
 ```
 # Windows-使用方法
 ```bash
-./minerProxy_3.0.3_windows.exe
+./minerproxy_3.0.3_windows.exe
 ```
-或双击打开minerProxy_3.0.3_windows.exe 运行成功后访问 IP:18888 (如：127.0.0.1:18888 注意开放端口) 进行配置即可。
+或双击打开minerproxy_3.0.3_windows.exe 运行成功后访问 IP:18888 (如：127.0.0.1:18888 注意开放端口) 进行配置即可。
 
 # 配置文件 config.yml
 ```
