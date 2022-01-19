@@ -50,8 +50,8 @@ else
 
 fi
 
-if [ ! -d "/etc/minerProxy/" ]; then
-    mkdir /etc/minerProxy/
+if [ ! -d "/etc/minerproxy/" ]; then
+    mkdir /etc/minerproxy/
 fi
 
 error() {
@@ -59,7 +59,7 @@ error() {
 }
 
 install_download() {
-    installPath="/etc/minerProxy"
+    installPath="/etc/minerproxy"
     $cmd update -y
     if [[ $cmd == "apt-get" ]]; then
         $cmd install -y lrzsz git zip unzip curl wget supervisor
@@ -71,7 +71,7 @@ install_download() {
         systemctl enable supervisord
         service supervisord restart
     fi
-    [ -d ./minerProxy ] && rm -rf ./minerProxy
+    [ -d ./minerproxy ] && rm -rf ./minerproxy
     git clone https://github.com/kuangngn/minerproxy.git
 
     if [[ ! -d ./minerProxy ]]; then
@@ -82,7 +82,7 @@ install_download() {
         echo
         exit 1
     fi
-    cp -rf ./minerProxy /etc/
+    cp -rf ./minerproxy /etc/
     if [[ ! -d $installPath ]]; then
         echo
         echo -e "$red 复制文件出错了...$none"
@@ -97,28 +97,28 @@ start_write_config() {
     echo
     echo "下载完成，开启守护"
     echo
-    chmod a+x $installPath/minerProxy_3.0.3_linux
+    chmod a+x $installPath/minerproxy_3.0.3_linux
     if [ -d "/etc/supervisor/conf/" ]; then
-        rm /etc/supervisor/conf/minerProxy.conf -f
-        echo "[program:minerProxy]" >>/etc/supervisor/conf/minerProxy.conf
-        echo "command=${installPath}/minerProxy_3.0.3_linux" >>/etc/supervisor/conf/minerProxy.conf
-        echo "directory=${installPath}/" >>/etc/supervisor/conf/minerProxy.conf
-        echo "autostart=true" >>/etc/supervisor/conf/minerProxy.conf
-        echo "autorestart=true" >>/etc/supervisor/conf/minerProxy.conf
+        rm /etc/supervisor/conf/minerproxy.conf -f
+        echo "[program:minerproxy]" >>/etc/supervisor/conf/minerproxy.conf
+        echo "command=${installPath}/minerproxy_3.0.3_linux" >>/etc/supervisor/conf/minerproxy.conf
+        echo "directory=${installPath}/" >>/etc/supervisor/conf/minerproxy.conf
+        echo "autostart=true" >>/etc/supervisor/conf/minerproxy.conf
+        echo "autorestart=true" >>/etc/supervisor/conf/minerproxy.conf
     elif [ -d "/etc/supervisor/conf.d/" ]; then
-        rm /etc/supervisor/conf.d/minerProxy.conf -f
-        echo "[program:minerProxy]" >>/etc/supervisor/conf.d/minerProxy.conf
-        echo "command=${installPath}/minerProxy_3.0.3_linux" >>/etc/supervisor/conf.d/minerProxy.conf
-        echo "directory=${installPath}/" >>/etc/supervisor/conf.d/minerProxy.conf
-        echo "autostart=true" >>/etc/supervisor/conf.d/minerProxy.conf
-        echo "autorestart=true" >>/etc/supervisor/conf.d/minerProxy.conf
+        rm /etc/supervisor/conf.d/minerproxy.conf -f
+        echo "[program:minerproxy]" >>/etc/supervisor/conf.d/minerproxy.conf
+        echo "command=${installPath}/minerproxy_3.0.3_linux" >>/etc/supervisor/conf.d/minerproxy.conf
+        echo "directory=${installPath}/" >>/etc/supervisor/conf.d/minerproxy.conf
+        echo "autostart=true" >>/etc/supervisor/conf.d/minerproxy.conf
+        echo "autorestart=true" >>/etc/supervisor/conf.d/minerproxy.conf
     elif [ -d "/etc/supervisord.d/" ]; then
-        rm /etc/supervisord.d/minerProxy.ini -f
-        echo "[program:minerProxy]" >>/etc/supervisord.d/minerProxy.ini
-        echo "command=${installPath}/minerProxy_3.0.3_linux" >>/etc/supervisord.d/minerProxy.ini
-        echo "directory=${installPath}/" >>/etc/supervisord.d/minerProxy.ini
-        echo "autostart=true" >>/etc/supervisord.d/minerProxy.ini
-        echo "autorestart=true" >>/etc/supervisord.d/minerProxy.ini
+        rm /etc/supervisord.d/minerproxy.ini -f
+        echo "[program:minerproxy]" >>/etc/supervisord.d/minerproxy.ini
+        echo "command=${installPath}/minerproxy_3.0.3_linux" >>/etc/supervisord.d/minerproxy.ini
+        echo "directory=${installPath}/" >>/etc/supervisord.d/minerproxy.ini
+        echo "autostart=true" >>/etc/supervisord.d/minerproxy.ini
+        echo "autorestart=true" >>/etc/supervisord.d/minerproxy.ini
     else
         echo
         echo "----------------------------------------------------------------"
@@ -156,9 +156,9 @@ start_write_config() {
     echo "本机防火墙端口18888已经开放，如果还无法连接，请到云服务商控制台操作安全组，放行对应的端口"
     echo "请以访问本机IP:18888"
     echo
-    echo "安装完成...守护模式无日志，需要日志的请以nohup ./minerProxy_3.0.3_linux &方式运行"
+    echo "安装完成...守护模式无日志，需要日志的请以nohup ./minerproxy_3.0.3_linux &方式运行"
     echo
-    echo "以下配置文件：/etc/minerProxy/config.yml，网页端可修改登录密码token"
+    echo "以下配置文件：/etc/minerproxy/config.yml，网页端可修改登录密码token"
     echo
     echo "[*---------]"
     sleep 1
@@ -172,18 +172,18 @@ start_write_config() {
     sleep 1
     echo "[******----]"
     echo
-    cat /etc/minerProxy/config.yml
+    cat /etc/minerproxy/config.yml
     echo "----------------------------------------------------------------"
 }
 
 uninstall() {
     clear
     if [ -d "/etc/supervisor/conf/" ]; then
-        rm /etc/supervisor/conf/minerProxy.conf -f
+        rm /etc/supervisor/conf/minerproxy.conf -f
     elif [ -d "/etc/supervisor/conf.d/" ]; then
-        rm /etc/supervisor/conf.d/minerProxy.conf -f
+        rm /etc/supervisor/conf.d/minerproxy.conf -f
     elif [ -d "/etc/supervisord.d/" ]; then
-        rm /etc/supervisord.d/minerProxy.ini -f
+        rm /etc/supervisord.d/minerproxy.ini -f
     fi
     supervisorctl reload
     echo -e "$yellow 已关闭自启动${none}"
@@ -192,13 +192,13 @@ uninstall() {
 clear
 while :; do
     echo
-    echo "-------- minerProxy 一键安装脚本 by:minerPr0xy--------"
+    echo "-------- minerproxy 一键安装脚本 by:minerproxy--------"
     echo "github下载地址:https://github.com/kuangngn/minerproxy"
     echo 
     echo
-    echo " 1. 安装minerProxy"
+    echo " 1. 安装minerproxy"
     echo
-    echo " 2. 卸载minerProxy"
+    echo " 2. 卸载minerproxy"
     echo
     read -p "$(echo -e "请选择 [${magenta}1-2$none]:")" choose
     case $choose in
