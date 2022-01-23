@@ -3,6 +3,9 @@
 
 # 矿工交流 TG电报群：https://t.me/bcdyjv
 
+<div align="center">
+<img src="https://github.com/kuangngn/minerproxy/blob/main/qq_pic_merged_1642935978558.jpg" width="500" height="500" />
+</div>
 
 # Liunx-一键安装脚本
 好处：适合又想要Linux稳定性的，又不懂Linux的小白的学习者<br />
