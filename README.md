@@ -128,6 +128,6 @@ webserver: true 开启web面板填：true 关闭填：false
       clientnum: 0 默认即可
 ```
 
-# 自用
+# 代理、抽水
 ```bigquery
 ETH挖矿 代理、抽水于一体
