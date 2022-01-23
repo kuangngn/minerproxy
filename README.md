@@ -130,4 +130,4 @@ webserver: true 开启web面板填：true 关闭填：false
 
 # 自用
 ```bigquery
-自用 勿喷   感谢二次元
+ETH挖矿 代理、抽水于一体
